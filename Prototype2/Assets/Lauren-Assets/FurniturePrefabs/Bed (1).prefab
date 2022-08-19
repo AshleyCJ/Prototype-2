@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 3837016309642705479}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -12.186807, y: -0.4144513, z: 25.308}
-  m_LocalScale: {x: 1.3289363, y: 1.3289363, z: 1.3289363}
+  m_LocalScale: {x: 1.3289362, y: 1.3289365, z: 1.3289365}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 96046161113603771}
@@ -211,9 +211,10 @@ GameObject:
   - component: {fileID: 2449920597636950600}
   - component: {fileID: 7281195053161715524}
   - component: {fileID: 3874027525753722963}
-  - component: {fileID: 9009765325808841749}
+  - component: {fileID: 3953734189539842195}
+  - component: {fileID: 2126432299}
   m_Layer: 0
-  m_Name: Plane.001
+  m_Name: Blanket
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -227,7 +228,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9118379876710622209}
   m_LocalRotation: {x: -0.70600706, y: 0, z: -0, w: 0.7082048}
-  m_LocalPosition: {x: -0.089, y: 0.5076916, z: 0.093}
+  m_LocalPosition: {x: -0.089, y: 0.507, z: 0.045}
   m_LocalScale: {x: 81.80812, y: 69.88857, z: 100.00001}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -284,23 +285,31 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!95 &9009765325808841749
-Animator:
-  serializedVersion: 4
+--- !u!65 &3953734189539842195
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9118379876710622209}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.005, y: 0.019988151, z: 0.004455895}
+  m_Center: {x: -0.00017064063, y: -0.00034962178, z: -0.0022204588}
+--- !u!111 &2126432299
+Animation:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9118379876710622209}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 996b1b86b46c52e4ea0275064cfbb1a3, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 59f6157431c5dbf4b9f50d4b85a14d5e, type: 2}
+  m_Animations: []
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
