@@ -6,7 +6,7 @@ using DG.Tweening;
 public class ObjectMovement : MonoBehaviour
 {
     public Animator EventsAnimator;
-
+    //Funitutre Items
     public GameObject Top_Fridge;
     private bool Top_Fridge_Open;
     public GameObject Bottom_Fridge;
@@ -28,6 +28,28 @@ public class ObjectMovement : MonoBehaviour
     private bool SinkCab2_Open;
     public GameObject Blanket;
     private bool Blanket_Open;
+
+    public GameObject Curtain;
+    private bool CurtainOpen;
+    private bool CurtainAnimation;
+
+    // Puzzle items, make the bools public to lock/unlock the items from another script
+    public GameObject Book;
+    public GameObject BookHinge;
+    private bool Book_Open;
+
+    public GameObject PlasticWrappedBox;
+    private bool PlasticWrappedBox_Open;
+
+    public GameObject Door;
+    public GameObject DoorHinge;
+    private bool DoorOpen;
+
+    public GameObject BoxWithCode;
+    public GameObject BoxHinge;
+    private bool BoxWithCode_Open;
+
+    public CreepyEvents CE;
 
     // Start is called before the first frame update
     void Start()
@@ -182,9 +204,29 @@ public class ObjectMovement : MonoBehaviour
                 }
             }
         }
+        else if (gameObject == Curtain)
+        {
+            if (!CurtainAnimation)
+            {
+
+
+                if (!CurtainOpen)
+                {
+                    gameObject.GetComponent<Animator>().Play("CurtainOpen");
+                    CurtainOpen = true;
+                    StartCoroutine(AnimationFinishCurtain());
+                }
+                else if (CurtainOpen)
+                {
+                    gameObject.GetComponent<Animator>().Play("CurtainClose");
+                    CurtainOpen = false;
+                    StartCoroutine(AnimationFinishCurtain());
+                }
+            }
+        }
         else if (gameObject == Blanket)
         {
-            Debug.Log("HIT OVEN");
+            
             if (!Blanket_Open)
             {
 
@@ -194,11 +236,58 @@ public class ObjectMovement : MonoBehaviour
             }
             
         }
+
+        ///PUZZLE OBJECTS///
+        //Objects that can be 'locked' until player has required item to unlock it. Make the objects bool 'true' to keep locked and when unlocked make it 'false'
+        // ie the box with the code must be locked until the correct code it put in. The "CodeBox_Open" bool must start as true to keep it locked. When the correct code is
+        //put in the bool must then = false. This will allow the opening animation to play when being clicked on.
+        else if( gameObject == Book)
+        {
+            if(!Book_Open)
+            {
+               
+                BookHinge.GetComponent<Animator>().Play("BookOpen");
+                Book_Open = true;
+            }
+        }
+        else if (gameObject == PlasticWrappedBox)
+        {
+            if (!PlasticWrappedBox_Open)
+            {
+
+                PlasticWrappedBox.GetComponent<Animator>().Play("PlasticWrappedBox_Open");
+                PlasticWrappedBox_Open = true;
+            }
+        }
+        else if(gameObject == Door)
+        {
+            if(!DoorOpen)
+            {
+                DoorHinge.GetComponent<Animator>().Play("DoorOpen");
+                DoorOpen = true;
+                CE.DistortionEnding();
+            }
+        }
+        else if(gameObject == BoxWithCode)
+        {
+            if(!BoxWithCode_Open)
+            {
+              BoxHinge.GetComponent<Animator>().Play("BoxCodeOpen");
+                BoxWithCode_Open = true;
+
+            }
+        }
     }
     IEnumerator AnimationFinishOven()
     {
         OvenAnimationPlaying = true;
         yield return new WaitForSeconds(2);
         OvenAnimationPlaying = false;
+    }
+    IEnumerator AnimationFinishCurtain()
+    {
+        CurtainAnimation = true;
+        yield return new WaitForSeconds(2.1f);
+        CurtainAnimation = false;
     }
 }

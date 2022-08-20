@@ -212,7 +212,7 @@ GameObject:
   - component: {fileID: 7281195053161715524}
   - component: {fileID: 3874027525753722963}
   - component: {fileID: 3953734189539842195}
-  - component: {fileID: 2126432299}
+  - component: {fileID: 2126432300}
   m_Layer: 0
   m_Name: Blanket
   m_TagString: Untagged
@@ -298,18 +298,23 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.005, y: 0.019988151, z: 0.004455895}
   m_Center: {x: -0.00017064063, y: -0.00034962178, z: -0.0022204588}
---- !u!111 &2126432299
-Animation:
+--- !u!95 &2126432300
+Animator:
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9118379876710622209}
   m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: 59f6157431c5dbf4b9f50d4b85a14d5e, type: 2}
-  m_Animations: []
-  m_WrapMode: 0
-  m_PlayAutomatically: 0
-  m_AnimatePhysics: 0
-  m_CullingType: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e5f598042483518459bc7992bf2df562, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
