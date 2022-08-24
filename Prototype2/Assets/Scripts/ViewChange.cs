@@ -9,11 +9,12 @@ public class ViewChange : MonoBehaviour
     int WallFacing;
     bool IsRotating;
     bool Started;
-    //Vector3 NewDirection;
-    //Vector3 CurrentDirection;
     Quaternion NewDirection;
     Quaternion CurrentDirection;
     float RotateSpeed = 50f;
+    bool HasChanged = false;
+
+    public CreepyEvents CE;
 
     // Start is called before the first frame update
     void Start()
@@ -25,8 +26,10 @@ public class ViewChange : MonoBehaviour
 
     void Update()
     {
+        HasChanged = false;
         if ((Input.GetKeyDown(KeyCode.A)) || (Input.GetKeyDown(KeyCode.LeftArrow)))
         {
+            HasChanged = true;
             WallFacing--;
             if (WallFacing == -1)
             {
@@ -35,6 +38,7 @@ public class ViewChange : MonoBehaviour
         }
         if ((Input.GetKeyDown(KeyCode.D)) || (Input.GetKeyDown(KeyCode.RightArrow)))
         {
+            HasChanged = true;
             WallFacing++;
             if (WallFacing == 4)
             {
@@ -55,6 +59,33 @@ public class ViewChange : MonoBehaviour
             default:
                 MainCamera.transform.rotation = Quaternion.Euler(0, 270, 0);
                 break;
+        }
+        if (HasChanged)
+        {
+            if (WallFacing != 0)
+            {
+                int EventChance = Random.Range(0, 3);
+                if (EventChance == 0)
+                {
+                    CE.BloodTap();
+                }
+            }
+            if (WallFacing != 2)
+            {
+                int EventChance = Random.Range(0, 3);
+                if (EventChance == 0)
+                {
+                    CE.PhoneCall();
+                }
+            }
+            if (WallFacing != 3)
+            {
+                int EventChance = Random.Range(0, 3);
+                if (EventChance == 0)
+                {
+                    CE.PaintingFall();
+                }
+            }
         }
     }
 

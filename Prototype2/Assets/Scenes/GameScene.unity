@@ -650,6 +650,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MainCamera: {fileID: 341371189}
+  CE: {fileID: 1704074485}
 --- !u!1 &364846184
 GameObject:
   m_ObjectHideFlags: 0
