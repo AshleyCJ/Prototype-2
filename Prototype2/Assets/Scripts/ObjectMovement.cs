@@ -186,7 +186,7 @@ public class ObjectMovement : MonoBehaviour
         {
             if (!OvenAnimationPlaying)
             {
-                Debug.Log("HIT OVEN");
+                //Debug.Log("HIT OVEN");
                 if (!Oven_Open)
                 {
 
@@ -215,6 +215,12 @@ public class ObjectMovement : MonoBehaviour
                     gameObject.GetComponent<Animator>().Play("CurtainOpen");
                     CurtainOpen = true;
                     StartCoroutine(AnimationFinishCurtain());
+
+                    int EventChance = Random.Range(0, 3);
+                    if (EventChance == 0)
+                    {
+                        CE.FigureWindow();
+                    }
                 }
                 else if (CurtainOpen)
                 {

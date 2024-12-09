@@ -6,10 +6,13 @@ using UnityEngine.SceneManagement;
 public class MenuManager : MonoBehaviour
 {
 
+    public bool mainMenu = true;
     public GameObject mainMenuPanel;
 
+    public bool creditMenu = false;
     public GameObject creditMenuPanel;
 
+    public bool InstructionMenu = false;
     public GameObject InstructionMenuPanel;
 
     public void Update()
@@ -23,7 +26,7 @@ public class MenuManager : MonoBehaviour
 
     public void StartGame()
     {
-       
+        
             mainMenuPanel.SetActive(false);
             creditMenuPanel.SetActive(false);
             InstructionMenuPanel.SetActive(true);
@@ -38,7 +41,7 @@ public class MenuManager : MonoBehaviour
     public void CreditsOn()
     {
 
-      
+        
             mainMenuPanel.SetActive(false);
             creditMenuPanel.SetActive(true);
        
@@ -47,10 +50,10 @@ public class MenuManager : MonoBehaviour
     public void MainMenuOn()
     {
 
-       
+        
             mainMenuPanel.SetActive(true);
             creditMenuPanel.SetActive(false);
-      
+        
     }
 
     public void ExitGame()
